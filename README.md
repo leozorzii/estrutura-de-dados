@@ -11,7 +11,6 @@
     <a href="#-tech-stack">Tech Stack</a> •
     <a href="#-conteudo">Conteúdo</a> •
     <a href="#-estrutura">Estrutura</a> •
-    <a href="#-como-rodar">Como rodar</a>
   </p>
 
   <br/>
@@ -71,3 +70,4 @@ data-structures/
 </pre>
 
 <p>Cada pasta contém implementações equivalentes para comparação direta entre linguagens.</p>
+
