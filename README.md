@@ -1,31 +1,66 @@
-🚀 Data Structures Playground
+<!-- README.md (GitHub) -->
 
-Repositório focado em implementação prática de Estruturas de Dados em múltiplas linguagens.
-Aqui a ideia é simples: entender na base, implementar do zero e comparar performance.
+<div align="center">
+  <h1>🚀 Data Structures Playground</h1>
+  <p>
+    Implementações práticas de <b>Estruturas de Dados</b> em múltiplas linguagens.<br/>
+    Do zero, comparável e sem firula.
+  </p>
 
-🛠 Tech Stack
+  <p>
+    <a href="#-tech-stack">Tech Stack</a> •
+    <a href="#-conteudo">Conteúdo</a> •
+    <a href="#-estrutura">Estrutura</a> •
+    <a href="#-como-rodar">Como rodar</a>
+  </p>
 
-Python → Prototipação rápida e clareza
+  <br/>
 
-C++ → Performance e controle de memória
+  <p>
+    <a href="https://www.python.org/" target="_blank" rel="noreferrer">
+      <img alt="Python" height="42" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" />
+    </a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://isocpp.org/" target="_blank" rel="noreferrer">
+      <img alt="C++" height="42" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" />
+    </a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://www.java.com/" target="_blank" rel="noreferrer">
+      <img alt="Java" height="42" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" />
+    </a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://learn.microsoft.com/dotnet/csharp/" target="_blank" rel="noreferrer">
+      <img alt="C#" height="42" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" />
+    </a>
+  </p>
 
-Java → OOP estruturado
+  <br/>
 
-C# → Ecossistema .NET
+  <img alt="divider" width="720" src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:111827,100:111827&section=header" />
+</div>
 
-📦 Estruturas Implementadas
+<h2 id="-tech-stack">🛠 Tech Stack</h2>
 
-Arrays & Matrizes
+<ul>
+  <li><b>Python</b> — prototipação rápida e clareza</li>
+  <li><b>C++</b> — performance e controle de memória</li>
+  <li><b>Java</b> — OO consistente e portável</li>
+  <li><b>C#</b> — ecossistema .NET e produtividade</li>
+</ul>
 
-Linked Lists
+<h2 id="-conteudo">📦 Conteúdo</h2>
 
-Stack & Queue
+<ul>
+  <li>Arrays & Matrizes</li>
+  <li>Linked Lists</li>
+  <li>Stack & Queue</li>
+  <li>Trees (BST, AVL, Heap)</li>
+  <li>Graphs (BFS, DFS, Dijkstra)</li>
+</ul>
 
-Trees (BST, AVL, Heap)
+<h2 id="-estrutura">📁 Estrutura</h2>
 
-Graphs (BFS, DFS, Dijkstra)
-
-📁 Estrutura
+<pre>
 data-structures/
 │
 ├── python/
@@ -33,15 +68,6 @@ data-structures/
 ├── java/
 ├── csharp/
 └── README.md
+</pre>
 
-Cada linguagem possui implementações equivalentes para comparação direta.
-
-🎯 Objetivo
-
-Dominar fundamentos de estruturas e algoritmos
-
-Comparar sintaxe e abordagem entre linguagens
-
-Analisar complexidade (Big-O)
-
-Construir base sólida para sistemas de maior escala
+<p>Cada pasta contém implementações equivalentes para comparação direta entre linguagens.</p>
