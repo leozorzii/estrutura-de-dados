@@ -60,7 +60,7 @@
 <h2 id="-estrutura">📁 Estrutura</h2>
 
 <pre>
-data-structures/
+estrutura-de-dados/
 │
 ├── python/
 ├── cpp/
@@ -70,4 +70,5 @@ data-structures/
 </pre>
 
 <p>Cada pasta contém implementações equivalentes para comparação direta entre linguagens.</p>
+
 
