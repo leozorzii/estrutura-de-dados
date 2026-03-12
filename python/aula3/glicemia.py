@@ -38,3 +38,17 @@ class Glicemia:
             return float(valores[meio])
         else: #tamanho da lista eh par
             return (valores[meio - 1] + valores[meio]) / 2.0
+
+    #logica de obter horario
+    def obter_turno(self):
+        horario = int(self.hora.split(':')[0]) 
+        if 5 <= horario < 12:
+            return 'MANHA'
+        elif 12 <= horario < 18:
+            return 'TARDE'
+        else:
+            return 'NOITE'
+            
+    #caso a glicemia esteja muito alta
+    def glicemia_alta(self):
+        return int(self.valor) >= 140
