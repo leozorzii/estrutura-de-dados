@@ -28,7 +28,7 @@ public class Main {
         }
 
          System.out.println("-- Analise Geral --");
-        ClimaService.analisarDados(climas);
+        ClimaService.processarClimas(climas);
     
     // analise por ano
     for(String ano : anos) {
@@ -39,7 +39,7 @@ public class Main {
                 climasDoAno.add(c);
             }
         }
-        ClimaService.analisarDados(climasDoAno);
+        ClimaService.processarClimas(climasDoAno);
     }
         }
     }
