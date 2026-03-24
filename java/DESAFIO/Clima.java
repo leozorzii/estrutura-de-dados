@@ -1,5 +1,10 @@
 import java.util.Objects;
-
+/**
+ * Representa um registro climático mensal.
+ * Contém informações de ano, mês, temperatura e precipitação.
+ * Dois objetos Clima são considerados iguais se possuírem
+ * o mesmo ano e mês.
+ */
 public class Clima {
     String ano;//2024 2025 2026
     String mes;
@@ -45,6 +50,12 @@ public class Clima {
         this.precipitacao = precipitacao;
     }
 
+    /**
+ * Converte o objeto Clima em uma representação textual,
+ * exibindo todos os atributos: ano, mês, temperatura e precipitação.
+ *
+ * @return String com os dados do objeto Clima
+ */
     @Override
     public String toString() {
         return "Clima{" +
@@ -55,6 +66,13 @@ public class Clima {
                 '}';
     }
 
+    /**
+ * Verifica se dois objetos Clima são iguais,
+ * comparando apenas o ano e o mês.
+ *
+ * @param o objeto a ser comparado
+ * @return true se ano e mês forem iguais, false caso contrário
+ */
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -62,6 +80,13 @@ public class Clima {
         return Objects.equals(ano, clima.ano) && Objects.equals(mes, clima.mes);
     }
 
+    /**
+ * Gera um código hash baseado no ano e mês do objeto.
+ * Objetos com mesmo ano e mês produzirão o mesmo hash,
+ * sendo utilizados em coleções como HashSet e HashMap.
+ *
+ * @return código hash do objeto
+ */
     @Override
     public int hashCode() {
         return Objects.hash(ano, mes);
