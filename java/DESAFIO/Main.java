@@ -2,11 +2,31 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 
 public class Main {
     public static void main(String[] args) throws IOException {
         ArrayList<Clima> climas = ClimaService.lerArquivo("dadosClimaticos.csv");
+
+         HashSet<String> anos = new HashSet<>();
+        for(Clima clima : climas) {
+            anos.add(clima.ano);
+        }
+
+         System.out.println("-- Analise Geral --");
         ClimaService.analisarDados(climas);
+    
+    // analise por ano
+    for(String ano : anos) {
+        System.out.println(" Ano: " + ano);
+        ArrayList<Clima> climasDoAno = new ArrayList<>();
+        for(Clima c : climas) {
+            if(c.ano.equals(ano)) {
+                climasDoAno.add(c);
+            }
+        }
+        ClimaService.analisarDados(climasDoAno);
     }
-}
+        }
+    }

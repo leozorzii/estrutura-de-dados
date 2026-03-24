@@ -6,7 +6,7 @@ public class Clima {
     String temperatura; //frio(ate 15 graus), quente(acima de 25), ameno(16 a 25)
     int precipitacao; //nada, pouca(ate 20mm), media(21 a 40mm), muita(mais de 40)
 
-    public Clima(String ano, String mes, String temperatura, int precipitacao) {
+        public Clima(String ano, String mes, String temperatura, int precipitacao) {
         this.ano = ano;
         this.mes = mes;
         this.temperatura = temperatura;

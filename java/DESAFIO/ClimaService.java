@@ -18,6 +18,7 @@ public class ClimaService{
     public static ArrayList<Clima> lerArquivo(String caminho) throws IOException { //caminho = dadosClimaticos.csv
         ArrayList<Clima> climas = new ArrayList<>();
         BufferedReader lerLinhaPorLinha = new BufferedReader(new FileReader(caminho));
+        lerLinhaPorLinha.readLine(); // 
         String linha = lerLinhaPorLinha.readLine();
 
         while(linha != null){
@@ -89,6 +90,11 @@ public class ClimaService{
         int quenteOutono = 0;
         int quenteInverno = 0;
 
+        int frioVerao = 0;
+        int frioOutono = 0;
+        int frioInverno = 0;
+        int frioPrimavera = 0;
+
         int amenoVerao = 0;
         int amenoOutono = 0;
         int amenoInverno = 0;
@@ -128,6 +134,15 @@ public class ClimaService{
                 amenoInverno++;
             } else if(estacao.equals("Primavera") && c.temperatura.equals("Ameno") ) {
                 amenoPrimavera++;
+            }
+            if(estacao.equals("Inverno") && c.temperatura.equals("Frio")){
+                frioInverno++;
+            }else if(estacao.equals("Outono") && c.temperatura.equals("Frio")){
+                frioOutono++;
+            }else if(estacao.equals("Primavera") && c.temperatura.equals("Frio")){
+                frioPrimavera++;
+            }else if(estacao.equals("Verao") && c.temperatura.equals("Frio")){
+                frioVerao++;
             }
         }
         if(somaVerao > somaOutono && somaVerao > somaInverno && somaVerao > somasPrimavera){
@@ -173,6 +188,16 @@ public class ClimaService{
         }else{
             System.out.println("Estação mais amena é a primavera");
         }
-    }
 
+        //frio
+        if(frioVerao > frioOutono && frioVerao > frioInverno && frioVerao > frioPrimavera){
+            System.out.println("Estação mais fria é o verao");
+        }else if(frioOutono > frioVerao && frioOutono > frioInverno && frioOutono > frioPrimavera){
+            System.out.println("Estação mais fria é o Outono");
+        }else if(frioInverno > frioVerao && frioInverno > frioOutono && frioInverno > frioPrimavera){
+            System.out.println("Estação mais fria é o Inverno");
+        }else{
+            System.out.println("Estação mais fria é a primavera");
+        }
+    }
 }
