@@ -1,3 +1,4 @@
+package DESAFIO;
 import java.util.Objects;
 
 public class Clima {
