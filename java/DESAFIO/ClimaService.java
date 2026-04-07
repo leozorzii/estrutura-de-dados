@@ -3,12 +3,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
+/**
+ * Servico responsavel pela logica de leitura e analise dos dados climaticos.
+ */
+public class ClimaService {
 
-
-public class ClimaService{
-
-      //metodo para ler o arquivo, publico e estatico
     /**
      * Lê o arquivo CSV informado e converte cada linha em um objeto Clima.
      * Ignora a primeira linha (cabeçalho) e linhas vazias.
@@ -16,17 +17,18 @@ public class ClimaService{
      * @return lista de objetos Clima com os dados do arquivo
      * @throws IOException se o arquivo não for encontrado ou não puder ser lido
      */
-    public static ArrayList<Clima> lerArquivo(String caminho) throws IOException { //caminho = dadosClimaticos.csv
+    public static ArrayList<Clima> lerArquivo(String caminho) throws IOException {
         ArrayList<Clima> climas = new ArrayList<>();
         BufferedReader lerLinhaPorLinha = new BufferedReader(new FileReader(caminho));
+        lerLinhaPorLinha.readLine(); // ignora o cabeçalho
         String linha = lerLinhaPorLinha.readLine();
 
-        while(linha != null){
-            if(!linha.isEmpty()){
-                String [] valores = linha.split(",");
+        while (linha != null) {
+            if (!linha.isEmpty()) {
+                String[] valores = linha.split(",");
                 int precipitacao = 0;
-                switch (valores[3]){
-                    case "muita" :
+                switch (valores[3]) {
+                    case "muita":
                         precipitacao = 3;
                         break;
                     case "média":
@@ -47,13 +49,14 @@ public class ClimaService{
 
         return climas;
     }
+
     /**
      * Retorna a estação do ano correspondente ao mês informado.
      * @param mes nome do mês em português
      * @return nome da estação correspondente
      */
-    private static String retornarEstacao(String mes){
-        switch (mes){
+    private static String retornarEstacao(String mes) {
+        switch (mes) {
             case "Dezembro":
             case "Janeiro":
             case "Fevereiro":
@@ -73,107 +76,76 @@ public class ClimaService{
             default:
                 return "desconhecido";
         }
-
     }
+
     /**
-     * Analisa a lista de climas e exibe no console:
-     * a estação que mais chove, a que menos chove,
-     * a mais quente e a mais amena.
-     * @param climas lista de objetos Clima a ser analisada
+     * Processa a lista de climas utilizando HashMaps para contabilizar
+     * precipitação e temperatura por estação.
+     * Exibe no console a estação que mais chove, menos chove,
+     * mais quente, mais amena e mais fria.
+     * @param climas lista de objetos Clima a ser processada
      */
-    public static void analisarDados(ArrayList<Clima> climas){
-        int somaVerao = 0;
-        int somaOutono =0;
-        int somaInverno = 0 ;
+    public static void processarClimas(ArrayList<Clima> climas) {
+        HashMap<String, Integer> somaChuva = new HashMap<>();
+        HashMap<String, Integer> contQuente = new HashMap<>();
+        HashMap<String, Integer> contFrio = new HashMap<>();
+        HashMap<String, Integer> contAmeno = new HashMap<>();
 
-        int quenteVerao = 0;
-        int quenteOutono = 0;
-        int quenteInverno = 0;
+        for (String est : new String[]{"Verao", "Outono", "Inverno", "Primavera"}) {
+            somaChuva.put(est, 0);
+            contQuente.put(est, 0);
+            contFrio.put(est, 0);
+            contAmeno.put(est, 0);
+        }
 
-        int amenoVerao = 0;
-        int amenoOutono = 0;
-        int amenoInverno = 0;
-
-        int somasPrimavera = 0;
-        int quentePrimavera = 0;
-        int amenoPrimavera = 0;
-
-        //percorrer o array de climas
-        for(Clima c : climas) {
+        for (Clima c : climas) {
             String estacao = retornarEstacao(c.mes);
-            if(estacao.equals("Verao")) {
-                somaVerao += c.precipitacao;
-        }else if(estacao.equals("Outono")) {
-                somaOutono += c.precipitacao;
-            } else if (estacao.equals("Inverno")) {
-                somaInverno += c.precipitacao;
-            }else if(estacao.equals("Primavera")) {
-                somasPrimavera += c.precipitacao;
-            }
-            //Quente
-            if(estacao.equals("Verao") &&  c.temperatura.equals("Quente")){
-                quenteVerao++;
-            } else if (estacao.equals("Outono") && c.temperatura.equals("Quente")) {
-                quenteOutono++;
-            }else if(estacao.equals("Inverno") && c.temperatura.equals("Quente")){
-                quenteInverno++;
-            }else if(estacao.equals("Primavera") && c.temperatura.equals("Quente")){
-                quentePrimavera++;
-            }
-            //AMENO
-            if(estacao.equals("Verao") &&  c.temperatura.equals("Ameno")){
-                amenoVerao++;
-            } else if (estacao.equals("Outono") && c.temperatura.equals("Ameno")) {
-                amenoOutono++;
-            }else if(estacao.equals("Inverno") && c.temperatura.equals("Ameno")){
-                amenoInverno++;
-            } else if(estacao.equals("Primavera") && c.temperatura.equals("Ameno") ) {
-                amenoPrimavera++;
-            }
-        }
-        if(somaVerao > somaOutono && somaVerao > somaInverno && somaVerao > somasPrimavera){
-            System.out.println("estação que mais chove é o verão!");
-        } else if (somaOutono > somaVerao && somaOutono > somaInverno && somaOutono > somasPrimavera) {
-            System.out.println("Estação que mais chove é o outono");
-        }else if(somaInverno > somaVerao && somaInverno > somaOutono && somaInverno > somasPrimavera){
-            System.out.println("Estação que mais chove é o Inverno");
-        } else {
-            System.out.println("Estação que mais chove é a primavera");
+            somaChuva.put(estacao, somaChuva.get(estacao) + c.precipitacao);
+            contQuente.put(estacao, contQuente.get(estacao) + (c.temperatura.equals("Quente") ? 1 : 0));
+            contFrio.put(estacao, contFrio.get(estacao) + (c.temperatura.equals("Frio") ? 1 : 0));
+            contAmeno.put(estacao, contAmeno.get(estacao) + (c.temperatura.equals("Ameno") ? 1 : 0));
         }
 
-
-        if(somaVerao < somaOutono && somaVerao < somaInverno && somaVerao < somasPrimavera){
-            System.out.println("Estação que menos chove é o Verão");
-        } else if (somaOutono < somaVerao && somaOutono < somaInverno && somaOutono < somasPrimavera) {
-            System.out.println("Estação que menos chove é o Outono");
-        } else if(somaInverno < somaVerao && somaInverno < somaOutono && somaInverno < somasPrimavera){
-            System.out.println("Estação que menos chove é o Inverno");
-        }else{
-            System.out.println("Estação que menos chove é a primavera");
-        }
-
-
-        if(quenteVerao > quenteOutono && quenteVerao > quenteInverno && quenteVerao > quentePrimavera){
-            System.out.println("Estação mais quente é o Verão");
-        } else if (quenteOutono > quenteVerao && quenteOutono > quenteInverno && quenteOutono > quentePrimavera) {
-            System.out.println("Estação mais quente é o Outono");
-        } else if(quenteInverno > quenteVerao && quenteInverno > quenteOutono && quenteInverno > quentePrimavera){
-            System.out.println("Estação mais quente é o Inverno");
-        }else{
-            System.out.println("Estação mais quente é a primavera");
-        }
-
-        //ameno
-
-        if(amenoVerao > amenoOutono && amenoVerao > amenoInverno && amenoVerao > amenoPrimavera){
-            System.out.println("Estação mais amena é o verão");
-        }else if(amenoOutono > amenoVerao && amenoOutono > amenoInverno && amenoOutono >amenoPrimavera){
-            System.out.println("Estação mais amena é o outono");
-        }else if(amenoInverno > amenoVerao && amenoInverno > amenoOutono && amenoInverno > amenoPrimavera){
-            System.out.println("Estação mais amena é o inverno");
-        }else{
-            System.out.println("Estação mais amena é a primavera");
-        }
+        System.out.println("Estação que mais chove: " + maiorDoMapa(somaChuva));
+        System.out.println("Estação que menos chove: " + menorDoMapa(somaChuva));
+        System.out.println("Estação mais quente: " + maiorDoMapa(contQuente));
+        System.out.println("Estação mais Amena: " + maiorDoMapa(contAmeno));
+        System.out.println("Estação mais fria: " + maiorDoMapa(contFrio));
     }
 
+    /**
+     * Retorna a estação com o maior valor no HashMap informado.
+     * @param mapa HashMap com estações e seus valores
+     * @return nome da estação com maior valor
+     */
+    public static String maiorDoMapa(HashMap<String, Integer> mapa) {
+        String maior = "";
+        int valor = 0;
+        for (String estacao : mapa.keySet()) {
+            if (mapa.get(estacao) > valor) {
+                valor = mapa.get(estacao);
+                maior = estacao;
+            }
+        }
+        return maior;
+    }
+
+    /**
+     * Retorna a estação com o menor valor no HashMap informado.
+     * Utiliza Integer.MAX_VALUE como valor inicial para garantir
+     * que qualquer valor real seja menor na comparação.
+     * @param menorMapa HashMap com estações e seus valores
+     * @return nome da estação com menor valor
+     */
+    public static String menorDoMapa(HashMap<String, Integer> menorMapa) {
+        String menor = "";
+        int valorMenor = Integer.MAX_VALUE;
+        for (String estacao : menorMapa.keySet()) {
+            if (menorMapa.get(estacao) < valorMenor) {
+                valorMenor = menorMapa.get(estacao);
+                menor = estacao;
+            }
+        }
+        return menor;
+    }
 }

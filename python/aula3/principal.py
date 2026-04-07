@@ -35,6 +35,51 @@ for medicao in lista_glicemica:
     turno = medicao.obter_turno()
     turnos[turno].append(medicao)
 
+<<<<<<< HEAD
+turnos = {
+        'MANHA': [],
+        'TARDE': [],
+        'NOITE': []
+}   
+for medicao in lista_glicemica:
+    turno = medicao.obter_turno()
+    turnos[turno].append(int(medicao.valor))
+    
+    #Exemplo do que esse for faz
+    #turnos = {
+    #'MANHA': [90, 110, 105],
+    #'TARDE': [130, 140],
+    #'NOITE': [100, 150, 120]
+    #}
+
+    #calcular media entre os turnos
+
+media_turnos = {}
+
+for turno, valores in turnos.items():
+    if len(valores) > 0:
+        medias_turnos[turno] = sum(valores) / len(valores)
+    else:
+        medias_turnos[turno] = 0
+
+    #metodo que pega maior valor entre os indices
+    turno_mais_alto = max(medias_turnos, key=medias_turnos.get)
+    print(f'Turno com glicemia mais alta: {turno_mais_alto}')
+
+    print('\nAlertas:')
+    encontrou_alerta = false
+
+    for medicao in lista_glicemica:
+        if medicao.glicemia_alta():
+            encontrou_alerta = True
+            print(f'glicemia alta({medicao.valor}) em {medicao.data} no horario: {medicao.hora} - TURNO: {medicao.obter_turno()}')
+
+    if not encontrou_alerta:
+        print('Nenhum alerta de glicemia alta, ta tranquilo galo cinza')
+    else:
+        print('Nenhum dado valido foi lido')
+
+=======
 print('\nLISTA MANHA')
 for item in turnos['MANHA']:
     print(item)
@@ -72,3 +117,4 @@ for medicao in lista_glicemica:
 
 if not encontrou_alerta:
     print('Nenhum alerta de glicemia alta.')
+>>>>>>> 6f3ae3aafdf5e490544f685af101e670f9af7285
