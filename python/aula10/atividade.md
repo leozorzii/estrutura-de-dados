@@ -1,4 +1,4 @@
-#Proposta de Trabalho: Gestão Acadêmica
+# Proposta de Trabalho: Gestão Acadêmica
 
 Objetivo: Implementar um sistema que processe o histórico de ingressantes e gere relatórios estatísticos simples. Os dados devem ser carregados do arquivo alunos.csv.
 
@@ -25,20 +25,3 @@ Exemplo de dados no arquivo alunos.csv
 Hugo Ribeiro,Sistemas de Informação,Masculino,2023
 Bruno Souza,Sistemas de Informação,Masculino,2021
 Ana Silva,Ciência da Computação,Feminino,2020
-Elena Pereira,Ciência da Computação,Feminino,2023
-Giovana Lins,Ciência da Computação,Feminino,2021
-Isabela Costa,Ciência da Computação,Feminino,2020
-João Victor,Sistemas de Informação,Masculino,2021
-Diego Santos,Sistemas de Informação,Masculino,2020
-Karen Lima,Ciência da Computação,Feminino,2022
-Lucas Almeida,Sistemas de Informação,Masculino,2020
-Nataniel Gomes,Sistemas de Informação,Masculino,2022
-Olivia Mendes,Ciência da Computação,Feminino,2021
-Ricardo Dias,Sistemas de Informação,Masculino,2021
-Paulo Freire,Sistemas de Informação,Masculino,2023
-Mariana Rocha,Ciência da Computação,Feminino,2023
-Carla Oliveira,Ciência da Computação,Feminino,2022
-Fabio Matos,Sistemas de Informação,Masculino,2022
-Quiteria Alves,Ciência da Computação,Feminino,2020
-Sofia Helena,Ciência da Computação,Feminino,2022
-Thiago Ramos,Sistemas de Informação,Masculino,2020
