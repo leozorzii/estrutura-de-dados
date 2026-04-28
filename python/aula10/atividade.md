@@ -1,5 +1,3 @@
-Formato: disponibilizar os códigos no seu github pessoal e enviar email para alexz@ufn.edu.br com ASSUNTO: Trabalho ED SI
-
 Proposta de Trabalho: Gestão Acadêmica
 
 Objetivo: Implementar um sistema que processe o histórico de ingressantes e gere relatórios estatísticos simples. Os dados devem ser carregados do arquivo alunos.csv.
