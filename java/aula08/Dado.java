@@ -1,4 +1,4 @@
-java.Aula08
+package java.Aula08
 public class Dado {
     public int valor;
     public int x;//linha

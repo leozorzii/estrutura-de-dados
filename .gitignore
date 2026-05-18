@@ -1,1 +1,34 @@
-__pycache__
+__pycache__# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.venv/
+venv/
+
+# C++
+*.o
+*.exe
+*.out
+*.dll
+*.so
+*.a
+
+# Java
+*.class
+target/
+.classpath
+.project
+.settings/
+*.jar
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
