@@ -61,7 +61,6 @@ estrutura-de-dados/
 ├── python/
 ├── cpp/
 ├── java/
-├── csharp/
 └── README.md
 </pre>
 
