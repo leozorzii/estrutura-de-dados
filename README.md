@@ -28,9 +28,6 @@
       <img alt="Java" height="42" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" />
     </a>
     &nbsp;&nbsp;&nbsp;
-    <a href="https://learn.microsoft.com/dotnet/csharp/" target="_blank" rel="noreferrer">
-      <img alt="C#" height="42" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" />
-    </a>
   </p>
 
   <br/>
@@ -44,7 +41,6 @@
   <li><b>Python</b> — prototipação rápida e clareza</li>
   <li><b>C++</b> — performance e controle de memória</li>
   <li><b>Java</b> — OO consistente e portável</li>
-  <li><b>C#</b> — ecossistema .NET e produtividade</li>
 </ul>
 
 <h2 id="-conteudo">📦 Conteúdo</h2>
